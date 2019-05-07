@@ -2,10 +2,14 @@
 
 # Installation
 
-1) Clone the project into the server directory.
+(Make sure that you've installed git on your PC)
 
-2) Upload the .sql file to the phpmyadmin.
+1. Open terminal and move into the server directory.
 
-3) Update database credentials in the db.php file.
+2. Run the following command: git clone https://github.com/allroundexperts/legacy-php-sample.git
 
-*This uses procedural programming paradigm and is made without considering performance. Intended purely for demonstration purposes.
+3. Upload the .sql file to the phpmyadmin.
+
+4. Update database credentials in the db.php file.
+
+\*This uses procedural programming paradigm and is made without considering performance. Intended purely for demonstration purposes.
