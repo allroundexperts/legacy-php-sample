@@ -29,7 +29,7 @@ if(isset($_GET["add"])){
 
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $query = mysqli_query($link, "DELETE FROM Orders WHERE OrderID='$id'");
+    $query = mysqli_query($link, "DELETE FROM orders WHERE OrderID='$id'");
     if($query){
         header("LOCATION: orders.php");
     }else{
@@ -39,7 +39,7 @@ if(isset($_GET['delete'])){
 
 if(count($_GET) === 0){
     $orders = [];
-    $query = mysqli_query($link, "SELECT *FROM Orders");
+    $query = mysqli_query($link, "SELECT *FROM orders");
     while($row = mysqli_fetch_assoc($query)){
         $orders[] = $row;
     }

@@ -17,7 +17,7 @@ if(isset($_GET["add"])){
         $exp_date = $_POST['exp_date'];
         $quantity = $_POST['quantity'];
         $price = $_POST['price'];
-        if(mysqli_query($link, "INSERT INTO Medicines (`Name`, `MfgDate`, `ExpDate`, `Price`, `Quantity`) VALUES ('$name', '$mfg_date', '$exp_date', '$price', '$quantity')")){
+        if(mysqli_query($link, "INSERT INTO medicines (`Name`, `MfgDate`, `ExpDate`, `Price`, `Quantity`) VALUES ('$name', '$mfg_date', '$exp_date', '$price', '$quantity')")){
             header("LOCATION: medicines.php");
         }else{ 
             $error = '<div class="alert alert-danger">Oh Snap! Some error occured.</div>';
@@ -30,7 +30,7 @@ if(isset($_GET["add"])){
 
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $query = mysqli_query($link, "DELETE FROM Medicines WHERE MedNo='$id'");
+    $query = mysqli_query($link, "DELETE FROM medicines WHERE MedNo='$id'");
     if($query){
         header("LOCATION: medicines.php");
     }else{
@@ -40,7 +40,7 @@ if(isset($_GET['delete'])){
 
 if(count($_GET) === 0){
     $medicines = [];
-    $query = mysqli_query($link, "SELECT *FROM Medicines");
+    $query = mysqli_query($link, "SELECT *FROM medicines");
     while($row = mysqli_fetch_assoc($query)){
         $medicines[] = $row;
     }

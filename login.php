@@ -10,7 +10,7 @@ if(isset($_SESSION['email'])){
 if(isset($_POST["submit"])){
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $query = mysqli_query($link, "SELECT *FROM Employee WHERE email='$email' AND password='$password'");
+    $query = mysqli_query($link, "SELECT *FROM employee WHERE email='$email' AND password='$password'");
     if(mysqli_num_rows($query) === 1){
         $_SESSION['email'] = $email;
         header("LOCATION: dashboard.php");

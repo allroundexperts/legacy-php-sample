@@ -14,7 +14,7 @@ if(isset($_GET["add"])){
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
         $prescription_id = $_POST['prescription_id'];
-        if(mysqli_query($link, "INSERT INTO Customer (`Name`, `PrescriptionID`) VALUES ('$name', '$prescription_id')")){
+        if(mysqli_query($link, "INSERT INTO customer (`Name`, `PrescriptionID`) VALUES ('$name', '$prescription_id')")){
             header("LOCATION: customers.php");
         }else{ 
             $error = '<div class="alert alert-danger">Oh Snap! Some error occured.</div>';
@@ -27,7 +27,7 @@ if(isset($_GET["add"])){
 
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $query = mysqli_query($link, "DELETE FROM Customer WHERE CustomerID='$id'");
+    $query = mysqli_query($link, "DELETE FROM customer WHERE CustomerID='$id'");
     if($query){
         header("LOCATION: customers.php");
     }else{
@@ -37,7 +37,7 @@ if(isset($_GET['delete'])){
 
 if(count($_GET) === 0){
     $customers = [];
-    $query = mysqli_query($link, "SELECT *FROM Customer");
+    $query = mysqli_query($link, "SELECT *FROM customer");
     while($row = mysqli_fetch_assoc($query)){
         $customers[] = $row;
     }

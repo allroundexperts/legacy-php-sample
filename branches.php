@@ -14,7 +14,7 @@ if(isset($_GET["add"])){
     if(isset($_POST['submit'])){
         $location = $_POST['location'];
         $city = $_POST['city'];
-        if(mysqli_query($link, "INSERT INTO Branch (`Location`, `City`) VALUES ('$location', '$city')")){
+        if(mysqli_query($link, "INSERT INTO branch (`Location`, `City`) VALUES ('$location', '$city')")){
             header("LOCATION: branches.php");
         }else{ 
             $error = '<div class="alert alert-danger">Oh Snap! Some error occured.</div>';
@@ -27,7 +27,7 @@ if(isset($_GET["add"])){
 
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $query = mysqli_query($link, "DELETE FROM Branch WHERE BranchID='$id'");
+    $query = mysqli_query($link, "DELETE FROM branch WHERE BranchID='$id'");
     if($query){
         header("LOCATION: branches.php");
     }else{
@@ -37,7 +37,7 @@ if(isset($_GET['delete'])){
 
 if(count($_GET) === 0){
     $branches = [];
-    $query = mysqli_query($link, "SELECT *FROM Branch");
+    $query = mysqli_query($link, "SELECT *FROM branch");
     while($row = mysqli_fetch_assoc($query)){
         $branches[] = $row;
     }
