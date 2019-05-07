@@ -10,7 +10,8 @@ function listData($data, $header){
         foreach($value as $col){
             $content .= "<td>$col</td>";
         }
-        $content .= '<td><a class="btn btn-danger" href="?delete='.$value[array_key_first($value)].'">Delete</a></td>';
+        $keys = array_keys($value);
+        $content .= '<td><a class="btn btn-danger" href="?delete='.$value[$keys[0]].'">Delete</a></td>';
         $content .= '</tr>';
     }
     $content .= '</table>';
